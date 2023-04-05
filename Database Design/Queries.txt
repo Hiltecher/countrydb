@@ -31,7 +31,7 @@ JOIN country_wanted_person
 ON country.id = country_wanted_person.country_id
 JOIN wanted_person
 ON country_wanted_person.wanted_person_id = wanted_person.id
-GROUP BY country.country_name
+GROUP BY country.country_name;
 
 SELECT continent.continent_name, COUNT(united_nations.country_id) AS "Number of Founding Members of The United Nations"
 FROM continent
@@ -40,4 +40,4 @@ ON continent.id = country.continent_id
 JOIN united_nations
 ON continent.id = united_nations.country_id
 WHERE united_nations.founding_memeber = true
-GROUP BY continent.continent_name
+GROUP BY continent.continent_name;
