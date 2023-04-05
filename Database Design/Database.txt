@@ -22,7 +22,7 @@ CREATE TABLE country (
 
 CREATE TABLE country_wanted_person (
 	id INT(11) AUTOINCREMENT 
-	country_id int(11) 
+	country_id INT(11) 
 	wanted_person_id INT(11)
 	PRIMARY KEY (id)
 	FOREIGN KEY country_id REFERENCES country(id)
@@ -31,7 +31,7 @@ CREATE TABLE country_wanted_person (
 
 CREATE TABLE nato (
 	id INT(11) AUTOINCREMENT
-	country_id int(11) 
+	country_id INT(11) 
 	date_joined DATE
 	founding_member TINYINT(1)
 	PRIMARY KEY (id)
@@ -40,7 +40,7 @@ CREATE TABLE nato (
 
 CREATE TABLE united_nations (
 	id INT(11) AUTOINCREMENT
-	country_id int(11) 
+	country_id INT(11) 
 	date_joined DATE
 	founding_member TINYINT(1)
 	PRIMARY KEY (id)
