@@ -1,0 +1,17 @@
+===Database jl2123
+
+== Table structure for table continent
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|int(11)|No|
+|continent_name|varchar(60)|No|
+== Dumping data for table continent
+
+|1|Europe
+|2|North America
+|3|Asia
+|4|South America
+|5|Oceania
+|6|Africa

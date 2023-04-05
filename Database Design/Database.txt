@@ -1,0 +1,56 @@
+CREATE DATABASE jl2123;
+
+CREATE TABLE continent (
+	id INT(11) AUTOINCREMENT
+	continent_name VARCHAR(60)
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE country (
+	id INT(11) AUTOINCREMENT
+	country_name VARCHAR(57)
+	population INT(11) 
+	year_founded INT(11)
+	gross_domestic_product BIGINT(20)
+	gross_domestic_product_currency VARCHAR(3)
+	nato_member TINYINT(1)
+	united_nations_member TINYINT(1)
+	continent_id INT(11)
+	PRIMARY KEY (id)
+	FOREIGN KEY continent_id REFERENCES continent(id)
+);
+
+CREATE TABLE country_wanted_person (
+	id INT(11) AUTOINCREMENT 
+	country_id int(11) 
+	wanted_person_id INT(11)
+	PRIMARY KEY (id)
+	FOREIGN KEY country_id REFERENCES country(id)
+	FOREIGN KEY wanted_person_id REFERENCES wanted_person(id)
+);
+
+CREATE TABLE nato (
+	id INT(11) AUTOINCREMENT
+	country_id int(11) 
+	date_joined DATE
+	founding_member TINYINT(1)
+	PRIMARY KEY (id)
+	FOREIGN KEY country_id REFERENCES country(id)
+);
+
+CREATE TABLE united_nations (
+	id INT(11) AUTOINCREMENT
+	country_id int(11) 
+	date_joined DATE
+	founding_member TINYINT(1)
+	PRIMARY KEY (id)
+	FOREIGN KEY country_id REFERENCES country(id)
+);
+
+CREATE TABLE wanted_person (
+	id INT(11) AUTOINCREMENT
+	date_of_birth DATE
+	first_name VARCHAR(40)
+	last_name VARCHAR(40)
+	PRIMARY KEY (id)
+);

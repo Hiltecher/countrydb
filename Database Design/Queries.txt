@@ -1,0 +1,43 @@
+SELECT *
+FROM country
+WHERE gross_domestic_currency = 'EUR';
+
+SELECT *
+FROM country
+ORDER BY year_founded;
+
+SELECT first_name, date_of_birth
+FROM wanted_person
+ORDER BY date_of_birth DESC;
+
+SELECT continent_name, COUNT(country_name) AS "Total Countries in the United Nations Founded in The Last 1000 Years"
+FROM country
+JOIN united_nations
+ON country.id = united_nations.country_id
+JOIN continent
+ON country.continent_id = continent.id
+WHERE year_founded >= (2023-1000) AND year_founded LIKE '1%'
+GROUP BY continent_name ASC;
+
+SELECT continent.continent_name, SUM(country.population) AS "Total Population"
+FROM continent
+JOIN country
+ON continent.id = country.continent_id
+GROUO BY continent.continent_name;
+
+SELECT country.country_name, COUNT(wanted_person.id) AS "Total Number of Wanted People"
+FROM country
+JOIN country_wanted_person
+ON country.id = country_wanted_person.country_id
+JOIN wanted_person
+ON country_wanted_person.wanted_person_id = wanted_person.id
+GROUP BY country.country_name
+
+SELECT continent.continent_name, COUNT(united_nations.country_id) AS "Number of Founding Members of The United Nations"
+FROM continent
+JOIN country
+ON continent.id = country.continent_id
+JOIN united_nations
+ON continent.id = united_nations.country_id
+WHERE united_nations.founding_memeber = true
+GROUP BY continent.continent_name
